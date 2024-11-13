@@ -1,10 +1,8 @@
 package src.main.java.org.example.jurasicparkke.Dinosaurios;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+// Dinosaurio.java
+import java.util.UUID;
 
-@Document(collection = "dinosaurios")
 public abstract class Dinosaurio {
-    @Id
     private String id;
     private String nombre;
     private int edad;
@@ -12,6 +10,7 @@ public abstract class Dinosaurio {
     private int nivelHambre;
 
     public Dinosaurio(String nombre, int edad) {
+        this.id = UUID.randomUUID().toString();
         this.nombre = nombre;
         this.edad = edad;
         this.estadoSalud = "Saludable";
@@ -24,5 +23,49 @@ public abstract class Dinosaurio {
         this.edad++;
     }
 
-    // Getters y Setters
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getEdad() {
+        return edad;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
+
+    public String getEstadoSalud() {
+        return estadoSalud;
+    }
+
+    public void setEstadoSalud(String estadoSalud) {
+        this.estadoSalud = estadoSalud;
+    }
+
+    public int getNivelHambre() {
+        return nivelHambre;
+    }
+
+    public void setNivelHambre(int nivelHambre) {
+        this.nivelHambre = nivelHambre;
+    }
 }
+
+
+
+
+
+

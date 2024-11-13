@@ -1,4 +1,4 @@
-package org.example.jurasicparkke;
+package src.main.java.org.example.jurasicparkke;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
