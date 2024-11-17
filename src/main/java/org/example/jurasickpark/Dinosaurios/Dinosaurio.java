@@ -66,4 +66,8 @@ public class Dinosaurio {
     public void setNivelHambre(int nivelHambre) {
         this.nivelHambre = nivelHambre;
     }
+
+    public void alimentar() {
+    }
+    public void monitorearSalud(){}
 }

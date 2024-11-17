@@ -1,5 +1,7 @@
 package org.example.jurasickpark.Servicios;
-import src.main.java.org.example.jurasicparkke.Sensor;
+
+
+import org.example.jurasickpark.Sensor;
 
 import java.util.HashMap;
 import java.util.Map;

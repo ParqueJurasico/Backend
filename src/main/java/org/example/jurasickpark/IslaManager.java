@@ -1,6 +1,9 @@
 package org.example.jurasickpark;
 
+import org.example.jurasickpark.Dinosaurios.Carnivoro;
 import org.example.jurasickpark.Dinosaurios.Dinosaurio;
+import org.example.jurasickpark.Dinosaurios.Herbivoro;
+import org.example.jurasickpark.Dinosaurios.Omnivoro;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,8 +18,8 @@ public class IslaManager {
     }
 
     private void inicializarIslas() {
-        tableros.add(new Tablero("Isla de Crianza", 10, 10));
-        tableros.add(new Tablero("Isla de Enfermería", 10, 10));
+        tableros.add(new Tablero("Isla de Crianza", 7, 7));
+        tableros.add(new Tablero("Isla de Enfermería", 5, 5));
         tableros.add(new Tablero("Isla de Voladores", 10, 10));
         tableros.add(new Tablero("Isla de Terrestres", 10, 10));
         tableros.add(new Tablero("Isla de Acuáticos", 10, 10));
