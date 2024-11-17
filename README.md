@@ -1,4 +1,4 @@
-# Implementación de un Sistema de Monitoreo Reactivo en Jurassic Park(Trabajo realizado por Pablo ALonso y francisco carlos lopez soto)
+# Implementación de un Sistema de Monitoreo Reactivo en Jurassic Park(Trabajo realizado por Pablo Alonso y Francisco López Soto)
 Link al repositorio: https://github.com/ParqueJurasico/Backend
 ## Resumen
 
