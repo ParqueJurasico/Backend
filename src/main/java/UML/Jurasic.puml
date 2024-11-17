@@ -1,0 +1,122 @@
+@startuml
+' Definición de interfaces y clases de repositorios
+interface DinosaurioRepository {
+    +save(Dinosaurio dinosaurio)
+    +findById(String id): Dinosaurio
+    +findAll(): List<Dinosaurio>
+    +delete(Dinosaurio dinosaurio)
+}
+
+interface HabitatRepository {
+    +save(Habitat habitat)
+    +findById(String id): Habitat
+    +findAll(): List<Habitat>
+    +delete(Habitat habitat)
+}
+
+interface SensorRepository {
+    +save(Sensor sensor)
+    +findById(String id): Sensor
+    +findAll(): List<Sensor>
+    +delete(Sensor sensor)
+}
+
+' Clase abstracta Dinosaurio y sus subclases
+abstract class Dinosaurio {
+    +String id
+    +String nombre
+    +int edad
+    +String estadoSalud
+    +int nivelHambre
+
+    +alimentar()
+    +monitorearSalud()
+    +incrementarMaduracion()
+}
+
+class Carnivoro extends Dinosaurio
+class Herbivoro extends Dinosaurio
+class Omnivoro extends Dinosaurio
+
+' Clase Sensor y su relación con Dinosaurio
+class Sensor {
+    +String id
+    +String tipoSensor
+    +Dinosaurio dinosaurio
+    +medir()
+    +alertarSiFueraDeRango()
+}
+
+Dinosaurio --> Sensor : monitoreadoPor
+
+' Clase Habitat que contiene dinosaurios
+class Habitat {
+    +String id
+    +String nombre
+    +String tipo
+    +double temperatura
+    +List<Dinosaurio> dinosaurios
+
+    +ajustarTemperatura()
+    +agregarDinosaurio(Dinosaurio dinosaurio)
+}
+
+Habitat --> Dinosaurio : contiene
+
+' Clase Isla que contiene habitats
+class Isla {
+    +String id
+    +String nombre
+    +List<Habitat> habitats
+
+    +agregarHabitat(Habitat habitat)
+}
+
+Isla --> Habitat : contiene
+
+' Servicios principales para manejar dinosaurios, habitats, y sensores
+class DinosaurioService {
+    +DinosaurioRepository dinosaurioRepository
+    +createDinosaurio(Dinosaurio dinosaurio)
+    +updateDinosaurio(Dinosaurio dinosaurio)
+    +deleteDinosaurio(String id)
+    +findDinosaurioById(String id): Dinosaurio
+}
+
+class HabitatService {
+    +HabitatRepository habitatRepository
+    +createHabitat(Habitat habitat)
+    +updateHabitat(Habitat habitat)
+    +deleteHabitat(String id)
+    +findHabitatById(String id): Habitat
+}
+
+class SensorService {
+    +SensorRepository sensorRepository
+    +createSensor(Sensor sensor)
+    +updateSensor(Sensor sensor)
+    +deleteSensor(String id)
+    +findSensorById(String id): Sensor
+}
+
+' Clase de monitoreo que usa RabbitMQ para recibir datos de sensores
+class MonitorDinosaurioService {
+    +monitorearDinosaurio(Dinosaurio dinosaurio)
+    +procesarDatos(Sensor sensor)
+    +alertarSiFueraDeRango(Sensor sensor)
+}
+
+' Relaciones de servicios con sus repositorios
+DinosaurioService --> DinosaurioRepository
+HabitatService --> HabitatRepository
+SensorService --> SensorRepository
+
+' Conexión entre MonitorDinosaurioService y Sensor para monitoreo
+MonitorDinosaurioService --> Sensor : recibeDatos
+
+' Relaciones de componentes con clases y servicios en la aplicación
+DinosaurioService --> Dinosaurio : maneja
+HabitatService --> Habitat : maneja
+SensorService --> Sensor : maneja
+
+@enduml
