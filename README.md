@@ -1,5 +1,5 @@
 # Implementación de un Sistema de Monitoreo Reactivo en Jurassic Park(Trabajo realizado por Pablo ALonso y francisco carlos lopez soto)
-
+Link al repositorio: https://github.com/ParqueJurasico/Backend
 ## Resumen
 
 Este proyecto tiene como objetivo desarrollar un sistema avanzado para monitorear la actividad de los dinosaurios en Jurassic Park utilizando programación reactiva con **Spring WebFlux**. El sistema procesará flujos de datos en tiempo real provenientes de sensores de movimiento, temperatura y frecuencia cardíaca, garantizando eficiencia, escalabilidad y capacidad de respuesta ante cualquier eventualidad en el parque.
